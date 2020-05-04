@@ -15,4 +15,4 @@ Tested with 2.0 version.
 ## Usage
 Activate this module as an admin.
 
-Select "Historic events" at the "Fects and events" tab.
+Select "Historic events" at the "Facts and events" tab.
