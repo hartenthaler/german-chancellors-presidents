@@ -1,8 +1,23 @@
 <?php
 
+/**
+ * webtrees: online genealogy
+ * Copyright (C) 2020 webtrees development team
+ * This program is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
+ * the Free Software Foundation, either version 3 of the License, or
+ * (at your option) any later version.
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+ * GNU General Public License for more details.
+ * You should have received a copy of the GNU General Public License
+ * along with this program. If not, see <http://www.gnu.org/licenses/>.
+ */ 
+ 
 declare(strict_types=1);
 
-namespace Hartenthaler\WebtreesModules\HistoryGerman;
+namespace Hartenthaler\WebtreesModules\HistoryGermanBundeskanzlerBundespraesidenten;
 
 use Fisharebest\Localization\Translation;
 use Fisharebest\Webtrees\I18N;
@@ -50,7 +65,7 @@ return new class extends AbstractModule implements ModuleCustomInterface, Module
      */
     public function title(): string
     {
-        return 'buka';
+        return I18N::translate('buka');
     }
 
     /**
@@ -63,6 +78,45 @@ return new class extends AbstractModule implements ModuleCustomInterface, Module
         return I18N::translate('Historical facts (in German) - Cancellors and Presidents of Germany (since 1949)');
     }
 
+    /**
+     * The person or organisation who created this module.
+     *
+     * @return string
+     */
+    public function customModuleAuthorName(): string
+    {
+        return 'Hermann Hartenthaler';
+    }
+
+    /**
+     * The version of this module.
+     *
+     * @return string
+     */
+    public function customModuleVersion(): string
+    {
+        return '2.0.3.1';
+    }
+
+    /**
+     * A URL that will provide the latest version of this module.
+     *
+     * @return string
+     */
+        public function customModuleLatestVersionUrl(): string
+    {
+        return 'https://github.com/hartenthaler/German_Bundeskanzler-und-Bundespraesidenten/master/latest-version.txt';
+    }
+
+    /**
+     * Where to get support for this module.  Perhaps a github respository?
+     *
+     * @return string
+     */
+    public function customModuleSupportUrl(): string
+    {
+        return 'https://github.com/hartenthaler/German_Bundeskanzler-und-Bundespraesidenten/';
+    }
 
     /**
      * Should this module be enabled when it is first installed?
@@ -71,16 +125,46 @@ return new class extends AbstractModule implements ModuleCustomInterface, Module
      */
     public function isEnabledByDefault(): bool
     {
-        return true;
+        return false;
     }
 
+    /**
+     * Where does this module store its resources
+     *
+     * @return string
+     */
+    public function resourcesFolder(): string
+    {
+        return __DIR__ . '/resources/';
+    }
+    
+    /**
+     * Additional/updated translations.
+     *
+     * @param string $language
+     *
+     * @return string[]
+     */
+    
+    public function customTranslations(string $language): array
+    {
+        switch ($language) {
+            case 'de':
+                // Arrays are preferred, and faster.
+                // If your module uses .MO files, then you can convert them to arrays like this.
+                return (new Translation(__DIR__ . '/resources/language/de.mo'))->asArray();
+    
+            default:
+                return [];
+        }
+    }
 
- 
     /**
      * All events provided by this module.
      *
      * @return Collection<string>
      */
+    
     public function historicEventsAll(): Collection
     {
         return new Collection([
