@@ -10,7 +10,7 @@ Tested with 2.0 version.
 1. Make database backup
 1. Download the [latest release](https://github.com/hartenthaler/german-chancellors-and-presidents/releases/latest)
 1. Unzip the package into your `webtrees/modules_v4` directory of your web server
-1. Rename the folder to `german-chancellors-and-presidents`
+1. Rename the folder to `GermanChancellorsAndPresidents`
 
 ## Usage
 Activate this module as an admin (in Control Panel/Modules/Individual page/Historic events).

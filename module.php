@@ -36,7 +36,7 @@ return new class extends AbstractModule implements ModuleCustomInterface, Module
     use ModuleCustomTrait;
     use ModuleHistoricEventsTrait;
 
-    public const CUSTOM_TITLE = 'bukanz';
+    public const CUSTOM_TITLE = 'GermanChancellorsAndPresidents';
 
     public const CUSTOM_AUTHOR = 'Hermann Hartenthaler';
     
