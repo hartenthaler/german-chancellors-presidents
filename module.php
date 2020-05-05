@@ -17,7 +17,7 @@
  
 declare(strict_types=1);
 
-namespace Hartenthaler\WebtreesModules\History\german-chancellors-and-presidents;
+namespace Hartenthaler\WebtreesModules\History\german_chancellors_and_presidents;
 
 use Fisharebest\Localization\Translation;
 use Fisharebest\Webtrees\I18N;
@@ -35,6 +35,16 @@ use Illuminate\Support\Collection;
 return new class extends AbstractModule implements ModuleCustomInterface, ModuleHistoricEventsInterface {
     use ModuleCustomTrait;
     use ModuleHistoricEventsTrait;
+
+    public const CUSTOM_TITLE = 'bukanz';
+
+    public const CUSTOM_AUTHOR = 'Hermann Hartenthaler';
+    
+    public const CUSTOM_WEBSITE = 'https://github.com/hartenthaler/german-chancellors-and-presidents/';
+    
+    public const CUSTOM_VERSION = '2.0.3.2';
+
+    public const CUSTOM_LAST = 'https://github.com/hartenthaler/german-chancellors-and-presidents/blob/master/latest-version.txt';
 
     /**
      * Constructor.  The constructor is called on *all* modules, even ones that are disabled.
@@ -66,7 +76,7 @@ return new class extends AbstractModule implements ModuleCustomInterface, Module
      */
     public function title(): string
     {
-        return I18N::translate('German Chancellors and Presidents');
+        return self::CUSTOM_TITLE;
     }
 
     /**
@@ -86,7 +96,7 @@ return new class extends AbstractModule implements ModuleCustomInterface, Module
      */
     public function customModuleAuthorName(): string
     {
-        return 'Hermann Hartenthaler';
+        return self::CUSTOM_AUTHOR;
     }
 
     /**
@@ -96,7 +106,7 @@ return new class extends AbstractModule implements ModuleCustomInterface, Module
      */
     public function customModuleVersion(): string
     {
-        return '2.0.3.2';
+        return self::CUSTOM_VERSION;
     }
 
     /**
@@ -106,7 +116,7 @@ return new class extends AbstractModule implements ModuleCustomInterface, Module
      */
         public function customModuleLatestVersionUrl(): string
     {
-        return 'https://github.com/hartenthaler/german-chancellors-and-presidents/master/latest-version.txt';
+        return self::CUSTOM_LAST;
     }
 
     /**
@@ -116,7 +126,7 @@ return new class extends AbstractModule implements ModuleCustomInterface, Module
      */
     public function customModuleSupportUrl(): string
     {
-        return 'https://github.com/hartenthaler/german-chancellors-and-presidents/';
+        return self::CUSTOM_WEBSITE;
     }
 
     /**

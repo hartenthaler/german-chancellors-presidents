@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: webtrees Bundeskanzler\n"
 "POT-Creation-Date: 2020-05-04 23:48+0200\n"
-"PO-Revision-Date: 2020-05-05 11:02+0200\n"
+"PO-Revision-Date: 2020-05-05 15:47+0200\n"
 "Last-Translator: \n"
 "Language-Team: hermann@hartenthaler.de\n"
 "Language: de\n"
@@ -14,10 +14,6 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Poedit-SearchPath-0: module.php\n"
 
-#: module.php:67
-msgid "German Cancellors and Presidents"
-msgstr "Bundeskanzler und Bundespräsidenten der Bundesrepublik Deutschland"
-
-#: module.php:77
+#: module.php:89
 msgid "Historical facts (in German) - Cancellors and Presidents of Germany (since 1949)"
 msgstr "Historische Fakten (in Deutsch) - Bundeskanzler und Bundespräsidenten der Bundesrepublik Deutschland (seit 1949)"
