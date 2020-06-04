@@ -1,4 +1,4 @@
-﻿# german-chancellors-and-presidents
+﻿# german-chancellors-presidents
 This module provides historical facts (in German language) for [webtrees](https://www.webtrees.net/) - Chancellors and Presidents of Germany (since 1949)
 
 ## System requirements
@@ -8,9 +8,9 @@ Tested with 2.0 version.
 
 ## Installation
 1. Make database backup
-1. Download the [latest release](https://github.com/hartenthaler/german-chancellors-and-presidents/releases/latest)
+1. Download the [latest release](https://github.com/hartenthaler/german-chancellors-presidents/releases/latest)
 1. Unzip the package into your `webtrees/modules_v4` directory of your web server
-1. Rename the folder to `GermanChancellorsAndPresidents`
+1. Rename the folder to `german-chancellors-presidents`
 
 ## Usage
 Activate this module as an admin (in Control Panel/Modules/Individual page/Historic events).

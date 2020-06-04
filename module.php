@@ -36,15 +36,15 @@ return new class extends AbstractModule implements ModuleCustomInterface, Module
     use ModuleCustomTrait;
     use ModuleHistoricEventsTrait;
 
-    public const CUSTOM_TITLE = 'GermanChancellorsAndPresidents';
+    public const CUSTOM_TITLE = 'German Chancellors Presidents';
 
     public const CUSTOM_AUTHOR = 'Hermann Hartenthaler';
     
-    public const CUSTOM_WEBSITE = 'https://github.com/hartenthaler/german-chancellors-and-presidents/';
+    public const CUSTOM_WEBSITE = 'https://github.com/hartenthaler/german-chancellors-presidents/';
     
-    public const CUSTOM_VERSION = '2.0.3.4';
+    public const CUSTOM_VERSION = '2.0.4.0';
 
-    public const CUSTOM_LAST = 'https://github.com/hartenthaler/german-chancellors-and-presidents/blob/master/latest-version.txt';
+    public const CUSTOM_LAST = 'https://github.com/hartenthaler/german-chancellors-presidents/blob/master/latest-version.txt';
 
     /**
      * Constructor.  The constructor is called on *all* modules, even ones that are disabled.
