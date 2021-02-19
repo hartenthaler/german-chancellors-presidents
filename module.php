@@ -173,12 +173,13 @@ return new class extends AbstractModule implements ModuleCustomInterface, Module
     /**
      * All events provided by this module.
      * 
-     * Each line is a GEDCOM style record to describe an event (EVEN), including newline chars (\n); markdown is used for NOTE;
+     * Each line is a GEDCOM style record to describe an event (EVEN), including newline chars (\n);
      *      1 EVEN <name> (<party>)
      *      2 TYPE <Chancellor|President> of Germany
      *      2 DATE <date period>
      *      2 NOTE [wikipedia de](<link>)
      *
+     * markdown is used for NOTE; markdown should be enabled for your tree (see Control panel / Manage family trees / Preferences and then scroll down to "Text" and mark the option "markdown")
      */
     
     public function historicEventsAll(): Collection
@@ -207,7 +208,7 @@ return new class extends AbstractModule implements ModuleCustomInterface, Module
         "1 EVEN Theodor Heuss (FDP)\n2 TYPE ".$eventTypeP."\n2 DATE FROM 12 SEP 1949 TO 12 SEP 1959\n2 NOTE [wikipedia ".$wikipedia."](https://".$wikipedia.".wikipedia.org/wiki/Theodor_Heuss)",
         "1 EVEN Heinrich Lübke (CDU)\n2 TYPE ".$eventTypeP."\n2 DATE FROM 13 SEP 1959 TO 30 JUN 1969\n2 NOTE [wikipedia ".$wikipedia."](https://".$wikipedia.".wikipedia.org/wiki/Heinrich_Lübke)",
         "1 EVEN Gustav Heinemann (SPD)\n2 TYPE ".$eventTypeP."\n2 DATE FROM 1 JUL 1969 TO 30 JUN 1974\n2 NOTE [wikipedia ".$wikipedia."](https://".$wikipedia.".wikipedia.org/wiki/Gustav_Heinemann)",
-        "1 EVEN Walter Scheel (FDP)\n2 TYPE ".$eventTypeP."\n2 DATE FROM 1 JUL 1974 TO 30 JUN 1979\n2 NOTE [wikipedia ".$wikipedia."](https://".$wikipedia.".wikipedia.org/wiki/Walter_Scheel)",
+        "1 EVEN Walter Scheel (FDP)\n2 TYPE ".$eventTypeP."\n2 DATE FROM 1 JUL 1974 TO 30 JUN 1979\n2 NOTE [wikipedia ".$wikipedia."](https://".$wikipedia.".wikipedia.org/wiki/Walter_Scheel )",
         "1 EVEN Karl Carstens (CDU)\n2 TYPE ".$eventTypeP."\n2 DATE FROM 1 JUL 1979 TO 30 JUN 1984\n2 NOTE [wikipedia ".$wikipedia."](https://".$wikipedia.".wikipedia.org/wiki/Karl_Carstens)",
         "1 EVEN Richard von Weizsäcker (CDU)\n2 TYPE ".$eventTypeP."\n2 DATE FROM 1 JUL 1984 TO 30 JUN 1994\n2 NOTE [wikipedia ".$wikipedia."](https://".$wikipedia.".wikipedia.org/wiki/Richard_von_Weizsäcker)",
         "1 EVEN Roman Herzog (CDU)\n2 TYPE ".$eventTypeP."\n2 DATE FROM 1 JUL 1994 TO 30 JUN 1999\n2 NOTE [wikipedia ".$wikipedia."](https://".$wikipedia.".wikipedia.org/wiki/Roman_Herzog)",
