@@ -15,4 +15,7 @@ Tested with 2.0 version.
 ## Usage
 Activate this module as an admin (in Control Panel/Modules/Individual page/Historic events).
 
+For wikipedia links in the notes markdown formatting is used; this should be enabled for your tree. See Control panel / Manage family trees / Preferences and then scroll down to "Text" and mark the option "markdown".
+If markdown is disabled the links are still working, but the formatting isn't so nice.
+
 Select as user "Historic events" at the "Facts and events" tab. 

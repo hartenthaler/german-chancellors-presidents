@@ -18,14 +18,14 @@ msgstr ""
 msgid "Historical facts (in German) - Cancellors and Presidents of Germany (since 1949)"
 msgstr "Historische Fakten (in Deutsch) - Bundeskanzler und Bundespräsidenten der Bundesrepublik Deutschland (seit 1949)"
 
-#: module.php:186
+#: module.php:189
 msgid "Chancellor of Germany"
 msgstr "Bundeskanzler von Deutschland"
 
-#: module.php:187
+#: module.php:190
 msgid "President of Germany"
 msgstr "Bundespräsident von Deutschland"
 
-#: module.php:188
+#: module.php:191
 msgid "acting"
 msgstr "geschäftsführend"
