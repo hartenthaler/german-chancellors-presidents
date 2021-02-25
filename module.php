@@ -42,9 +42,9 @@ return new class extends AbstractModule implements ModuleCustomInterface, Module
     
     public const CUSTOM_WEBSITE = 'https://github.com/hartenthaler/german-chancellors-presidents/';
     
-    public const CUSTOM_VERSION = '2.0.11.0';
+    public const CUSTOM_VERSION = '2.0.11.2';
 
-    public const CUSTOM_LAST = 'https://github.com/hartenthaler/german-chancellors-presidents/blob/master/latest-version.txt';
+    public const CUSTOM_LAST = 'https://github.com/hartenthaler/german-chancellors-presidents/raw/master/latest-version.txt';
 
     /**
      * Constructor.  The constructor is called on *all* modules, even ones that are disabled.
@@ -206,6 +206,7 @@ return new class extends AbstractModule implements ModuleCustomInterface, Module
         "1 EVEN Helmut Kohl (CDU)\n2 TYPE ".$eventTypeC."\n2 DATE FROM 1 OCT 1982 TO 27 OCT 1998\n2 NOTE [wikipedia ".$wikipedia."](https://".$wikipedia.".wikipedia.org/wiki/Helmut_Kohl )",
         "1 EVEN Gerhard Schröder (SPD)\n2 TYPE ".$eventTypeC."\n2 DATE FROM 27 OCT 1998 TO 22 NOV 2005\n2 NOTE [wikipedia ".$wikipedia."](https://".$wikipedia.".wikipedia.org/wiki/Gerhard_Schröder )",
         "1 EVEN Angela Merkel (CDU)\n2 TYPE ".$eventTypeC."\n2 DATE FROM 22 NOV 2005\n2 NOTE [wikipedia ".$wikipedia."](https://".$wikipedia.".wikipedia.org/wiki/Angela_Merkel )",
+//        \n2 OBJE @H0001@\n0 @H0001@ OBJE\n1 FILE https://upload.wikimedia.org/wikipedia/commons/thumb/e/e5/12-03-06-cebit-eroeffnung-angela-merkel-21-crop.jpg/140px-12-03-06-cebit-eroeffnung-angela-merkel-21-crop.jpg\n2 FORM jpg",
 // Presidents (without acting presidents):            
         "1 EVEN Theodor Heuss (FDP)\n2 TYPE ".$eventTypeP."\n2 DATE FROM 12 SEP 1949 TO 12 SEP 1959\n2 NOTE [wikipedia ".$wikipedia."](https://".$wikipedia.".wikipedia.org/wiki/Theodor_Heuss )",
         "1 EVEN Heinrich Lübke (CDU)\n2 TYPE ".$eventTypeP."\n2 DATE FROM 13 SEP 1959 TO 30 JUN 1969\n2 NOTE [wikipedia ".$wikipedia."](https://".$wikipedia.".wikipedia.org/wiki/Heinrich_Lübke )",
