@@ -4,7 +4,7 @@ This module provides historical facts (in German language) for [webtrees](https:
 ## System requirements
 Same as [webtrees#system-requirements](https://github.com/fisharebest/webtrees#system-requirements).
 
-Tested with 2.0.11 version.
+Tested with 2.1.13 version.
 
 ## Installation
 1. Make database backup
