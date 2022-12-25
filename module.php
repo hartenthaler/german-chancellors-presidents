@@ -206,7 +206,8 @@ return new class extends AbstractModule implements ModuleCustomInterface, Module
         "1 EVEN Helmut Kohl (CDU)\n2 TYPE ".$eventTypeC."\n2 DATE FROM 1 OCT 1982 TO 27 OCT 1998\n2 NOTE [wikipedia ".$wikipedia."](https://".$wikipedia.".wikipedia.org/wiki/Helmut_Kohl )",
         "1 EVEN Gerhard Schröder (SPD)\n2 TYPE ".$eventTypeC."\n2 DATE FROM 27 OCT 1998 TO 22 NOV 2005\n2 NOTE [wikipedia ".$wikipedia."](https://".$wikipedia.".wikipedia.org/wiki/Gerhard_Schröder )",
         "1 EVEN Angela Merkel (CDU)\n2 TYPE ".$eventTypeC."\n2 DATE FROM 22 NOV 2005\n2 NOTE [wikipedia ".$wikipedia."](https://".$wikipedia.".wikipedia.org/wiki/Angela_Merkel )",
-//        \n2 OBJE @H0001@\n0 @H0001@ OBJE\n1 FILE https://upload.wikimedia.org/wikipedia/commons/thumb/e/e5/12-03-06-cebit-eroeffnung-angela-merkel-21-crop.jpg/140px-12-03-06-cebit-eroeffnung-angela-merkel-21-crop.jpg\n2 FORM jpg",
+        "1 EVEN Olaf Scholz (SPD)\n2 TYPE ".$eventTypeC."\n2 DATE FROM 8 DEC 2021\n2 NOTE [wikipedia ".$wikipedia."](https://".$wikipedia.".wikipedia.org/wiki/Olaf_Scholz )",
+//        \n2 OBJE @H0001@\n0 @H0001@ OBJE\n1 FILE hhttps://upload.wikimedia.org/wikipedia/commons/thumb/8/8e/Olaf_Scholz_2021_cropped.jpg/178px-Olaf_Scholz_2021_cropped.jpg\n2 FORM jpg",
 // Presidents (without acting presidents):            
         "1 EVEN Theodor Heuss (FDP)\n2 TYPE ".$eventTypeP."\n2 DATE FROM 12 SEP 1949 TO 12 SEP 1959\n2 NOTE [wikipedia ".$wikipedia."](https://".$wikipedia.".wikipedia.org/wiki/Theodor_Heuss )",
         "1 EVEN Heinrich Lübke (CDU)\n2 TYPE ".$eventTypeP."\n2 DATE FROM 13 SEP 1959 TO 30 JUN 1969\n2 NOTE [wikipedia ".$wikipedia."](https://".$wikipedia.".wikipedia.org/wiki/Heinrich_Lübke )",
