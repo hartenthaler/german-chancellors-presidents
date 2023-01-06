@@ -1,0 +1,38 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: webtrees german-chancellors-presidents\n"
+"POT-Creation-Date: 2023-01-06 20:13+0100\n"
+"PO-Revision-Date: \n"
+"Last-Translator: Hermann Hartenthaler <hermann@hartenthaler.de>\n"
+"Language-Team: \n"
+"Language: de\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: Poedit 3.2.2\n"
+"X-Poedit-Basepath: ../..\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+"X-Poedit-KeywordsList: translate;noop;plural:1,2;translateContext:2,1c\n"
+"X-Poedit-SearchPath-0: .\n"
+"X-Poedit-SearchPathExcluded-0: .git\n"
+
+#: module.php:88
+msgid ""
+"Historical facts (in German) - Chancellors and Presidents of Germany (since "
+"1949)"
+msgstr ""
+"Historische Fakten (in Deutsch) - Bundeskanzler und Bundespräsidenten der "
+"Bundesrepublik Deutschland (seit 1949)"
+
+#: module.php:186
+msgid "Chancellor of Germany"
+msgstr "Bundeskanzler von Deutschland"
+
+#: module.php:187
+msgid "President of Germany"
+msgstr "Bundespräsident von Deutschland"
+
+#: module.php:188
+msgid "acting"
+msgstr "geschäftsführend"
