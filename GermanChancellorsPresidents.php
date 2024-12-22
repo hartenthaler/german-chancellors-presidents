@@ -27,8 +27,12 @@
  */
 
 /**
+ * tbd: add more images to historic data csv file
  * tbd: allow admin to select in the control panel to switch on/off Chancellors/Presidents individually;
- * tbd: add more images to historic data records
+ * tbd: add more countries like Austria and Switzerland
+ * tbd: add a new column: image title
+ * tbd: replace csv file by reading wikidata: https://www.wikidata.org/wiki/Q4970706 and P1308 (Amtsinhaber);
+ *      wikidata has all the necessary information; maybe a general approach is possible for other countries, too.
  */
 
 declare(strict_types=1);
@@ -37,7 +41,6 @@ namespace Hartenthaler\WebtreesModules\History\german_chancellors_and_presidents
 
 use Hartenthaler\Webtrees\Helpers\Functions;
 use Fisharebest\Localization\Translation;
-use Fisharebest\Webtrees\FlashMessages;
 use Fisharebest\Webtrees\I18N;
 use Fisharebest\Webtrees\Module\AbstractModule;
 use Fisharebest\Webtrees\Module\ModuleCustomInterface;

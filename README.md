@@ -8,6 +8,10 @@
 
 This [webtrees](https://www.webtrees.net) module provides historical facts (in German language): Chancellors and Presidents of Germany (since 1949)
 
+<a name="screenshot"></a>
+## Screenshot
+![Screenshot](docs/img/screenshot.png)
+
 <a name="usage"></a>
 ## Usage
 
@@ -30,12 +34,6 @@ The comma separated columns in that file are
 
 At the moment only the German wikipedia is supported.
 
-To get the information for image link and attribution:
-go to the wikipedia article, click on an image, ask for details,
-select "use this file", copy FileURL and Attribution.
-Then transfer this information into the csv file
-(replacing all commas in the attribution by other characters or enclose in "...".)
-
 For wikipedia links in the notes Markdown formatting is used;
 this should be enabled for your tree. See Control panel/Manage family trees/Preferences and then scroll down to "Text" and mark the option "markdown".
 If markdown is disabled the links are still working, but the formatting isn't so nice.
@@ -47,7 +45,7 @@ Select as user "Historic events" at the "Facts and events" tab.
 
 **[webtrees](https://webtrees.net/)** is an online collaborative genealogy application.
 This can be hosted on your own server by following the [Install instructions](https://webtrees.net/install/).
-If you are familiar with Docker, you might like to install **webtrees** using [this unofficial docker image](https://hub.docker.com/r/nathanvaughn/webtrees), [or this one](https://github.com/H2CK/webtrees).
+If you are familiar with Docker, you might like to install **webtrees** using [this unofficial docker image](https://hub.docker.com/r/nathanvaughn/webtrees), or any other one.
 
 <a name="requirements"></a>
 ## Requirements
@@ -104,6 +102,14 @@ If you'd like to contribute to this module, great! You can contribute by
 - Contributing historical facts: make you familiar with the structure of the csv file; change existing or add new data; test it; [create an issue](https://github.com/hartenthaler/german-chancellors-presidents/issues), then you can link your pull request.
 - Contributing code: check out the issues for things that need attention. If you have changes you want to make not listed in an [issue](https://github.com/hartenthaler/german-chancellors-presidents/issues), please create one, then you can link your pull request.
 - Testing: it's all manual currently, please [create an issue](https://github.com/hartenthaler/german-chancellors-presidents/issues) for any bugs you find.
+
+How to get the information for an image link and attribution:
+- go to the wikipedia article
+- click on an image
+- ask for details
+- select "use this file"
+- copy File URL and Attribution
+- transfer this information into the csv file (replacing all commas in the attribution by other characters or enclose in "...".)
 
 <a name="license"></a>
 ## License
