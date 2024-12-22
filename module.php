@@ -34,8 +34,12 @@ use Composer\Autoload\ClassLoader;
 
 $loader = new ClassLoader();
 
+// this webtrees custom module
 $loader->addPsr4('Hartenthaler\\WebtreesModules\\History\\german_chancellors_and_presidents\\', __DIR__);
+
+// my helper functions for webtrees custom modules
 $loader->addPsr4('Hartenthaler\\Webtrees\\Helpers\\', __DIR__ . "/vendor/Hartenthaler/Webtrees/Helpers");
+
 $loader->register();
 
 return new GermanChancellorsPresidents();

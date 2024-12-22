@@ -26,15 +26,6 @@
  * along with this program. If not, see <http://www.gnu.org/licenses/>.
  */
 
-/**
- * tbd: add more images to historic data csv file
- * tbd: allow admin to select in the control panel to switch on/off Chancellors/Presidents individually;
- * tbd: add more countries like Austria and Switzerland
- * tbd: add a new column: image title
- * tbd: replace csv file by reading wikidata: https://www.wikidata.org/wiki/Q4970706 and P1308 (Amtsinhaber);
- *      wikidata has all the necessary information; maybe a general approach is possible for other countries, too.
- */
-
 declare(strict_types=1);
 
 namespace Hartenthaler\WebtreesModules\History\german_chancellors_and_presidents;
@@ -63,6 +54,16 @@ use function strlen;
  * Historical facts (in German): Chancellors and Presidents of Germany (since 1949)
  * Historische Daten: Bundeskanzler und Bundespräsidenten der Bundesrepublik Deutschland (seit 1949)
  */
+
+/**
+ * tbd: add more images to historic data csv file
+ * tbd: allow admin to select in the control panel to switch on/off Chancellors/Presidents individually;
+ * tbd: add more countries like Austria and Switzerland
+ * tbd: add a new column: image title
+ * tbd: replace csv file by reading wikidata: https://www.wikidata.org/wiki/Q4970706 and P1308 (Amtsinhaber);
+ *      wikidata has all the necessary information; maybe a general approach is possible for other countries, too.
+ */
+
 class GermanChancellorsPresidents extends AbstractModule implements ModuleCustomInterface, ModuleHistoricEventsInterface {
     use ModuleCustomTrait;
     use ModuleHistoricEventsTrait;
@@ -78,8 +79,10 @@ class GermanChancellorsPresidents extends AbstractModule implements ModuleCustom
 
     //Custom module version
     public const CUSTOM_VERSION    = '2.2.1.0';
-    public const CUSTOM_LAST       = 'https://raw.githubusercontent.com/' . self::GITHUB_USER . '/' .
-                                                self::CUSTOM_MODULE . '/master/latest-version.txt';
+
+    // not used anymore: public const CUSTOM_LAST  = 'https://raw.githubusercontent.com/' . self::GITHUB_USER . '/' .
+    //                                            self::CUSTOM_MODULE . '/master/latest-version.txt';
+
     //GitHub user name
     public const GITHUB_USER       = 'hartenthaler';
 
@@ -163,13 +166,14 @@ class GermanChancellorsPresidents extends AbstractModule implements ModuleCustom
      * A URL that will provide the latest version of this module.
      *
      * @return string
-     */
-        public function customModuleLatestVersionUrl(): string
-    {
-        return self::CUSTOM_LAST;
-    }
+ *
+* public function customModuleLatestVersionUrl(): string
+    * {
+        * return self::CUSTOM_LAST;
+    * }
+    * /
 
-    /**
+     * /**
      * Where to get support for this module. Perhaps a GitHub repository?
      *
      * @return string
@@ -338,7 +342,7 @@ class GermanChancellorsPresidents extends AbstractModule implements ModuleCustom
      * @param string $language_tag
      */
     
-    public function historicEventsAll(string $language_tag): Collection
+    public function historicEventsAll(string $language_tag = "en"): Collection
     {
     /**
      * tbd: wikipedia should be selected based on the $language_tag of the webtrees user if the article exists

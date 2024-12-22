@@ -40,6 +40,9 @@ If markdown is disabled the links are still working, but the formatting isn't so
 
 Select as user "Historic events" at the "Facts and events" tab.
 
+As administrator you can modify how the historical events are presented in the timeline of a person by using the CSS&JS module
+(see the [German webtrees manual](https://wiki.genealogy.net/Webtrees_Handbuch/Entwicklungsumgebung#Beispiel_-_Farben_bei_Historischen_Fakten_anpassen)).
+
 <a name="webtrees"></a>
 ## webtrees
 
@@ -53,7 +56,7 @@ If you are familiar with Docker, you might like to install **webtrees** using [t
 This module requires **webtrees** version 2.0 or later.
 This module has the same requirements as [webtrees#system-requirements](https://github.com/fisharebest/webtrees#system-requirements).
 
-This module was tested with **webtrees** version 2.0.21 and 2.2.1.
+This module was tested with **webtrees** version 2.1.21 and 2.2.1.
 All available themes and all other custom modules can be used together with this one.
 
 <a name="installation"></a>
@@ -81,11 +84,11 @@ You can use a local editor,
 like Poedit or Notepad++, to make the translations and send them back to me.
 You can do this via a pull request (if you know how) or by e-mail.
 
-Discussion on translating can be done by creating an [issue](https://github.com/hartenthaler/german-chancellors-presidents/issues).
+Discussion on translation can be done by creating an [issue](https://github.com/hartenthaler/german-chancellors-presidents/issues).
 
 Updated translations will be included in the next release of this module.
 
-There are now, beside English, and German, no other translations available.
+There are now, beside English and German, no other translations available.
 
 <a name="support"></a>
 ## Support
