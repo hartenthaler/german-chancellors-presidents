@@ -2,6 +2,7 @@
 [![License: GPL v3](https://img.shields.io/badge/License-GPL%20v3-blue.svg)](http://www.gnu.org/licenses/gpl-3.0)
 
 ![webtrees major version](https://img.shields.io/badge/webtrees-v2.1.x-green)
+![webtrees major version](https://img.shields.io/badge/webtrees-v2.2.x-green)
 
 ![Latest Release](https://img.shields.io/github/v/release/hartenthaler/german-chancellors-presidents)
 
@@ -15,9 +16,27 @@ The structure of historic events provided by this module is oriented on GEDCOM e
   *      1 EVEN <name> (<party>)
   *      2 TYPE <Chancellor|President> of Germany
   *      2 DATE <date period>
-  *      2 NOTE [wikipedia de](<link>)
+  *      2 NOTE [wikipedia de](<link>) or format including an image (using Markdown)
+  *      3 CONT <image attribution>   
 
-For wikipedia links in the notes markdown formatting is used;
+The basic information is stored as csv file in the folder resources and can be edited easily.
+The comma separated columns in that file are
+  *      name (party)
+  *      type (C|P) and subtype (A) (using C|P|A for Chancellor|President|acting
+  *      acting time range (using format of GEDCOM date range)
+  *      wikipedia article (name of article in (German) wikipedia)
+  *      image link (URL based on wikicommons (without leading https://)
+  *      image attribution (from Wikipedia Commons image licence)
+
+At the moment only the German wikipedia is supported.
+
+To get the information for image link and attribution:
+go to the wikipedia article, click on an image, ask for details,
+select "use this file", copy FileURL and Attribution.
+Then transfer this information into the csv file
+(replacing all commas in the attribution by other characters or enclose in "...".)
+
+For wikipedia links in the notes Markdown formatting is used;
 this should be enabled for your tree. See Control panel/Manage family trees/Preferences and then scroll down to "Text" and mark the option "markdown".
 If markdown is disabled the links are still working, but the formatting isn't so nice.
 
@@ -36,8 +55,8 @@ If you are familiar with Docker, you might like to install **webtrees** using [t
 This module requires **webtrees** version 2.0 or later.
 This module has the same requirements as [webtrees#system-requirements](https://github.com/fisharebest/webtrees#system-requirements).
 
-This module was tested with **webtrees** 2.1.15 version
-and all available themes and all other custom modules.
+This module was tested with **webtrees** version 2.0.21 and 2.2.1.
+All available themes and all other custom modules can be used together with this one.
 
 <a name="installation"></a>
 ## Installation
@@ -57,7 +76,7 @@ with the new ones from the latest release.
 <a name="translation"></a>
 ## Translation
 
-At the moment only the event types (chancellor, president) and meta data can be translated, 
+At the moment only the event types (chancellor, president) and metadata can be translated, 
 no other data.
 
 You can use a local editor,
@@ -82,15 +101,15 @@ There are now, beside English, and German, no other translations available.
 
 If you'd like to contribute to this module, great! You can contribute by
 
-- Contributing historical facts - those are defined as a GEDCOM record; make you familiar with the structure of existing data (see module.php); change existing or add new data; test it; [create an issue](https://github.com/hartenthaler/german-chancellors-presidents/issues), then you can link your pull request.
-- Contributing code - check out the issues for things that need attention. If you have changes you want to make not listed in an [issue](https://github.com/hartenthaler/german-chancellors-presidents/issues), please create one, then you can link your pull request.
-- Testing - it's all manual currently, please [create an issue](https://github.com/hartenthaler/german-chancellors-presidents/issues) for any bugs you find.
+- Contributing historical facts: make you familiar with the structure of the csv file; change existing or add new data; test it; [create an issue](https://github.com/hartenthaler/german-chancellors-presidents/issues), then you can link your pull request.
+- Contributing code: check out the issues for things that need attention. If you have changes you want to make not listed in an [issue](https://github.com/hartenthaler/german-chancellors-presidents/issues), please create one, then you can link your pull request.
+- Testing: it's all manual currently, please [create an issue](https://github.com/hartenthaler/german-chancellors-presidents/issues) for any bugs you find.
 
 <a name="license"></a>
 ## License
 
-* Copyright (C) 2023 Hermann Hartenthaler
-* Derived from **webtrees** - Copyright 2023 webtrees development team.
+* Copyright (C) 2025 Hermann Hartenthaler
+* Derived from **webtrees** - Copyright 2025 webtrees development team.
 
 This program is free software: you can redistribute it and/or modify
 it under the terms of the GNU General Public License as published by

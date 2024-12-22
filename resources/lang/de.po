@@ -36,3 +36,7 @@ msgstr "Bundespräsident von Deutschland"
 #: module.php:188
 msgid "acting"
 msgstr "geschäftsführend"
+
+#: module.php:188
+msgid "source"
+msgstr "Quelle"

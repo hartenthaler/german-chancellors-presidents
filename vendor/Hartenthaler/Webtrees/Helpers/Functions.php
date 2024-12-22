@@ -5,7 +5,6 @@
  * Copyright (C) 2025 webtrees development team
  *                    <https://webtrees.net>
  *
- * GermanChancellorsPresidents (webtrees custom module):
  * Copyright (C) 2025 Hermann Hartenthaler
  *
  * This program is free software: you can redistribute it and/or modify
@@ -19,23 +18,34 @@
  * You should have received a copy of the GNU General Public License
  * along with this program. If not, see <https://www.gnu.org/licenses/>.
  *
- *
- * A webtrees (https://webtrees.net) 2.1 and 2.2 custom module
- * to show historic events in the timeline of a person in the tree.
  * 
+ * Functions to be used in webtrees custom modules
+ *
  */
- 
 
 declare(strict_types=1);
 
-namespace Hartenthaler\WebtreesModules\History\german_chancellors_and_presidents;
+namespace Hartenthaler\Webtrees\Helpers;
 
-use Composer\Autoload\ClassLoader;
+use Fisharebest\Webtrees\Registry;
+use Fisharebest\Webtrees\Webtrees;
 
-$loader = new ClassLoader();
-
-$loader->addPsr4('Hartenthaler\\WebtreesModules\\History\\german_chancellors_and_presidents\\', __DIR__);
-$loader->addPsr4('Hartenthaler\\Webtrees\\Helpers\\', __DIR__ . "/vendor/Hartenthaler/Webtrees/Helpers");
-$loader->register();
-
-return new GermanChancellorsPresidents();
+/**
+ * Functions to be used in webtrees custom modules
+ */
+class Functions
+{
+    /**
+     * Get interface from container
+     *
+     * @return mixed
+     */
+    public static function getFromContainer(string $id) {
+        if (version_compare(Webtrees::VERSION, '2.2.0', '>=')) {
+            return Registry::container()->get($id);
+        }
+        else {
+            return app($id);
+        }    
+    }    
+}
