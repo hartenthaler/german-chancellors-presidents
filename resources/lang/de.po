@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: webtrees german-chancellors-presidents\n"
-"POT-Creation-Date: 2024-12-22 13:35+0100\n"
+"POT-Creation-Date: 2025-01-03 20:58+0100\n"
 "PO-Revision-Date: \n"
 "Last-Translator: Hermann Hartenthaler <hermann@hartenthaler.de>\n"
 "Language-Team: \n"
@@ -17,26 +17,74 @@ msgstr ""
 "X-Poedit-SearchPath-0: .\n"
 "X-Poedit-SearchPathExcluded-0: .git\n"
 
-#: GermanChancellorsPresidents.php:136
-msgid ""
-"Historical facts (in German) - Chancellors and Presidents of Germany (since "
-"1949)"
+#: GermanChancellorsPresidents.php:155
+msgid "Historical facts - Chancellors and Presidents of Germany (since 1949)"
 msgstr ""
-"Historische Fakten (in Deutsch) - Bundeskanzler und Bundespräsidenten der "
-"Bundesrepublik Deutschland (seit 1949)"
+"Historische Fakten - Bundeskanzler und Bundespräsidenten in Deutschland, "
+"sowie Staatsoberhäupter der DDR (seit 1949)"
 
-#: GermanChancellorsPresidents.php:283
+#: GermanChancellorsPresidents.php:326 GermanChancellorsPresidents.php:438
 msgid "Chancellor of Germany"
 msgstr "Bundeskanzler von Deutschland"
 
-#: GermanChancellorsPresidents.php:284
+#: GermanChancellorsPresidents.php:327 GermanChancellorsPresidents.php:439
 msgid "President of Germany"
 msgstr "Bundespräsident von Deutschland"
 
-#: GermanChancellorsPresidents.php:285
+#: GermanChancellorsPresidents.php:328
 msgid "acting"
 msgstr "geschäftsführend"
 
-#: GermanChancellorsPresidents.php:347
+#: GermanChancellorsPresidents.php:403
 msgid "source"
 msgstr "Quelle"
+
+#: GermanChancellorsPresidents.php:440
+msgid "Head of former state GDR"
+msgstr "Staatsoberhaupt der DDR"
+
+#: GermanChancellorsPresidents.php:474
+msgid "from"
+msgstr "ab"
+
+#: GermanChancellorsPresidents.php:475
+#, php-format
+msgid "member of party %s"
+msgstr "Mitglied der Partei %s"
+
+#: GermanChancellorsPresidents.php:764
+#, php-format
+msgid "The preferences for the module “%s” have been updated."
+msgstr "Die Einstellungen für das Module \"%s\" wurden aktualisiert."
+
+#: resources/views/settings.phtml:21
+msgid "Control panel"
+msgstr ""
+
+#: resources/views/settings.phtml:32
+msgid "Use csv file"
+msgstr "Verwendung der csv-Datei"
+
+#: resources/views/settings.phtml:38
+msgid "Should the content of the csv file be used?"
+msgstr "Soll der Inhalt der csv-Datei verwendet werden?"
+
+#: resources/views/settings.phtml:44 resources/views/settings.phtml:65
+msgid "no"
+msgstr ""
+
+#: resources/views/settings.phtml:44 resources/views/settings.phtml:65
+msgid "yes"
+msgstr ""
+
+#: resources/views/settings.phtml:53
+msgid "Use wikidata"
+msgstr "Verwendung von wikidata"
+
+#: resources/views/settings.phtml:59
+msgid "Should the content of wikidata be used?"
+msgstr "Sollen Angaben aus wikidata verwendet werden?"
+
+#: resources/views/settings.phtml:77
+msgid "save"
+msgstr ""

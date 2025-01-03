@@ -1,0 +1,80 @@
+<?php
+
+declare(strict_types=1);
+
+use Fisharebest\Webtrees\I18N;
+use Fisharebest\Webtrees\View;
+use Fisharebest\Webtrees\Http\RequestHandlers\ControlPanel;
+
+/**
+ * @var string      $title                  title of this custom module
+ * @var string      $description            description of this module
+ *
+ * @var bool        $useCsv                 option whether the csv file should be used
+ * @var bool        $useWikidata            option whether data from wikidata should be used
+ //* @var bool        $showCsvChancellors     show Chancellors in csv file            // tbd
+ //* @var bool        $showCsvPresidents     show Presidents in csv file             // tbd
+ */
+?>
+
+<?= view('components/breadcrumbs', [
+        'links' => [route(ControlPanel::class) => I18N::translate('Control panel'), $title]]) ?>
+
+<h1><?= e($title) ?></h1>
+<p><?= e($description) ?></p>
+
+<div class="german-chancellors-presidents mb-5">
+    <form method="post">
+        <?= csrf_field() ?>
+        <input type="hidden" name="save" id="save" value="1">
+
+        <p>&nbsp;</p>
+        <h4><?= I18N::translate('Use csv file') ?></h4>
+        <div class="row">
+            <!-- show tree contacts -->
+            <fieldset class="form-group mb-3">
+                <div class="row">
+                    <legend class="col-form-label col-sm-3 wt-page-options-label">
+                        <?= I18N::translate('Should the content of the csv file be used?') ?>
+                    </legend>
+                    <div class="col-sm-9 wt-page-options-value">
+                        <?= view('components/radios-inline', [
+                            'id' => 'useCsv',
+                            'name' => 'useCsv',
+                            'options' => [I18N::translate('no'), I18N::translate('yes')],
+                            'selected' => (int)$useCsv
+                        ]) ?>
+                    </div>
+                </div>
+            </fieldset>
+        </div>
+
+        <p>&nbsp;</p>
+        <h4><?= I18N::translate('Use wikidata') ?></h4>
+        <div class="row">
+            <!-- show tree contacts -->
+            <fieldset class="form-group mb-3">
+                <div class="row">
+                    <legend class="col-form-label col-sm-3 wt-page-options-label">
+                        <?= I18N::translate('Should the content of wikidata be used?') ?>
+                    </legend>
+                    <div class="col-sm-9 wt-page-options-value">
+                        <?= view('components/radios-inline', [
+                            'id' => 'useWikidata',
+                            'name' => 'useWikidata',
+                            'options' => [I18N::translate('no'), I18N::translate('yes')],
+                            'selected' => (int)$useWikidata
+                        ]) ?>
+                    </div>
+                </div>
+            </fieldset>
+        </div>
+
+        <p>&nbsp;</p>
+
+        <button type="submit" class="btn btn-primary">
+            <?= view('icons/save') ?>
+            <?= I18N::translate('save') ?>
+        </button>
+    </form>
+</div>
