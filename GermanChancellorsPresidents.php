@@ -64,8 +64,7 @@ use function strlen;
  */
 
 /**
- * tbd: wikidata: if partyEndDate <= startActingDate don't show the party (see Joachim Gauck)
- * tbd: wikidata: sometimes a Wikidata Id is shown instead of a label. check wikidata for the reason for that
+ * tbd: wikidata: if endPartyDate <= startActingDate: don't show the party (see Joachim Gauck)
  * tbd: wikidata: add photo, title of photo, and source of photo (like it is available in the csv file))
  * tbd: admin can select in csv: switch on/off Chancellors/Presidents individually;
  * tbd: admin can select for wikidata which of the queries should be shown
@@ -83,7 +82,7 @@ class GermanChancellorsPresidents extends AbstractModule
     use ModuleConfigTrait;
 
     // title of custom module
-    public const CUSTOM_TITLE = 'German Chancellors Presidents 🇩🇪';
+    public const CUSTOM_TITLE = 'German Chancellors Presidents';
 
     // name of custom module
     public const CUSTOM_MODULE = 'german-chancellors-presidents';
@@ -92,7 +91,7 @@ class GermanChancellorsPresidents extends AbstractModule
     public const CUSTOM_AUTHOR = 'Hermann Hartenthaler';
 
     // custom module version
-    public const CUSTOM_VERSION = '2.2.1.2';
+    public const CUSTOM_VERSION = '2.2.1.3';
 
     // GitHub user name
     public const GITHUB_USER = 'hartenthaler';
@@ -547,7 +546,7 @@ class GermanChancellorsPresidents extends AbstractModule
     {
         list($wikidataId, $property, $eventType) = $wikidataObject;
         return "
-            SELECT ?officeHolderLabel ?startActingDate ?endActingDate ?birthDate ?deathDate ?partyShortLabel ?startPartyDate ?article WHERE {
+            SELECT ?officeHolderLabel ?startActingDate ?endActingDate ?birthDate ?deathDate ?partyShortLabel ?startPartyDate ?endPartyDate ?article WHERE {
                 wd:$wikidataId p:$property ?statement.
                 ?statement ps:$property ?officeHolder.
                 OPTIONAL { ?statement pq:P580 ?startActingDate. }
@@ -558,6 +557,7 @@ class GermanChancellorsPresidents extends AbstractModule
                     ?officeHolder p:P102 ?partyStatement.
                     ?partyStatement ps:P102 ?party.
                     OPTIONAL { ?partyStatement pq:P580 ?startPartyDate. }
+                    OPTIONAL { ?partyStatement pq:P582 ?endPartyDate. }
                     OPTIONAL { ?party wdt:P1813 ?partyShortLabel. }
                 }
                 OPTIONAL {
@@ -569,7 +569,7 @@ class GermanChancellorsPresidents extends AbstractModule
                                      schema:inLanguage 'en'.
                 }
                 BIND(COALESCE(?article, ?fallbackArticle) AS ?article)
-                SERVICE wikibase:label { bd:serviceParam wikibase:language '$wikipediaLanguage,en'. }
+                SERVICE wikibase:label { bd:serviceParam wikibase:language '$wikipediaLanguage,en,mul'. }
             }
             ORDER BY DESC(?officeHolderLabel) DESC(?startPartyDate)
         ";
@@ -610,15 +610,11 @@ class GermanChancellorsPresidents extends AbstractModule
         foreach ($records as $record) {
             $label = $record->officeHolderLabel;
             $wikiType = $this->extractWikiType($record->article);       // that is for example "pedia" or "news" or ...
-            if (isset($record->startPartyDate) && isset($record->endActingDate)) {
-                $priority = $this->getPriority($wikiType, $record->startPartyDate, $record->endActingDate);
-            } elseif (isset($record->startPartyDate) && !isset($record->endActingDate)) {
-                $priority = $this->getPriority($wikiType, $record->startPartyDate, null);
-            } elseif (!isset($record->startActingDate) && isset($record->endActingDate)) {
-                $priority = $this->getPriority($wikiType, null, $record->endActingDate);
-            } else {
-                $priority = $this->getPriority($wikiType, null, null);
-            }
+            $startPartyDate = $record->startPartyDate ?? null;
+            $endActingDate = $record->endActingDate ?? null;
+
+            // get priority for that record
+            $priority = $this->getPriority($wikiType, $startPartyDate, $endActingDate);
 
             // add record to an array using the same Label
             $tempStructure[$label][] = [
@@ -628,20 +624,20 @@ class GermanChancellorsPresidents extends AbstractModule
             ];
         }
 
-        // Finde den Datensatz mit der höchsten Priorität pro Label
+        // find the record with the highest priority for each label
         foreach ($tempStructure as $label => $dataList) {
-            // Standardmäßig ist der erste Datensatz der mit der höchsten Priorität
+            // by default, the first record is assumed to have the highest priority
             $highestPriorityRecord = $dataList[0];
 
-            // Iteriere durch alle Datensätze mit diesem Label, um die höchste Priorität zu finden
+            // iterate through all records with this label to find the one with the highest priority
             foreach ($dataList as $data) {
                 if ($data['priority'] > $highestPriorityRecord['priority']) {
                     $highestPriorityRecord = $data;
                 }
             }
 
-            $highestPriorityRecord['record']->wikiType = $highestPriorityRecord['wikiType']; // test .":".$highestPriorityRecord['priority'];
-            // Füge den Datensatz mit der höchsten Priorität zu den eindeutigen Datensätzen hinzu
+            $highestPriorityRecord['record']->wikiType = $highestPriorityRecord['wikiType'];
+            // add the record with the highest priority to the list of unique records
             $uniqueRecords[] = $highestPriorityRecord['record'];
         }
 
@@ -680,18 +676,38 @@ class GermanChancellorsPresidents extends AbstractModule
             'voyage' => 200,
         ];
         $priority = $wikiPriority[$wikiType] ?? 0;
-
-        $startParty = !empty($startPartyDate) ? new DateTime($startPartyDate) : null;
-        $endActing = !empty($endActingDate) ? new DateTime($endActingDate) : null;
-        if (isset($startPartyDate) && isset($endActingDate)) {
-            if ($startParty >= $endActing) {$priority = $priority - 10000;}
-        }
-        if (isset($startParty)) {
-            $year = date("Y") - (int)$startParty->format('Y');        // number between 0 and about 125
-            $priority = $priority - $year;                                          // prefer later dates
-        }
+        $priority = $this->getPriorityPartyDate($startPartyDate, $endActingDate, $priority);
         return $priority;
     }
+
+    /**
+     * Estimate priority of a record based on start date in a party and end date of acting date period.
+     * Reduce priority if start party date is after end acting date and prefer later party dates
+     *
+     * @param string $startPartyDate date for start in a party, formatted as ISO 8601 (e.g. "1937-03-19T00:00:00Z")
+     * @param string $endActingDate date for end of acting time period, formatted as ISO 8601 (e.g. "1937-03-19T00:00:00Z")
+     * @param int $priority already set priority base value
+     * @return int priority for that type
+     */
+    private function getPriorityPartyDate(?string $startPartyDate, ?string $endActingDate, int $priority): int
+    {
+        $startParty = !empty($startPartyDate) ? new DateTime($startPartyDate) : null;
+        $endActing = !empty($endActingDate) ? new DateTime($endActingDate) : null;
+
+        if (isset($startPartyDate) && isset($endActingDate)) {
+            if ($startParty >= $endActing) {
+                $priority -= 10000;
+            }
+        }
+
+        if (isset($startParty)) {
+            $year = date("Y") - (int)$startParty->format('Y');    // number between 0 and about 125
+            $priority -= $year;                                                 // prefer later dates
+        }
+
+        return $priority;
+    }
+
     /**
      * generate list of preferences (control panel options)
      * there are more options like order of chapters or options to show or not to show a chapter
