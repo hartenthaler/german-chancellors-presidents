@@ -1,3 +1,1 @@
-# Cache Wikidata Results
-
-Cache the results fetched from Wikidata for one day to reduce the number of repeat calls.
+Cache results fetched from Wikidata for one day and use cache instead of calling Wikidata again.
