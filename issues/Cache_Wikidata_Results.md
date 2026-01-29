@@ -1,0 +1,1 @@
+Cache results fetched from Wikidata for one day to minimize repetitive calls.
