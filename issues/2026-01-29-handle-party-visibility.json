@@ -1,0 +1,1 @@
+{"title": "Handle party visibility based on dates", "body": "wikidata: if endPartyDate <= startActingDate: don't show the party (see Joachim Gauck)"}
